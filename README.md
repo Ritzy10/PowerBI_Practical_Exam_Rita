@@ -1,9 +1,9 @@
-# Power BI Practical Exam – [Your Full Name]
+# Power BI Practical Exam – RITA
 
 ## Project Overview
 This project is my submission for the DSA3050A End Semester Exam, demonstrating end-to-end Business Intelligence development using **Power BI**.
 
-The dataset is based on the **AdventureWorks Sales** data, consisting of transactional sales, product, customer, and date dimensions.  
+The dataset is based on the **AdventureWorks Sales** data.  
 The deliverables include:
 - Data extraction, transformation, and loading (ETL) in Power Query
 - Star schema data modeling
@@ -26,16 +26,15 @@ The project uses **AdventureWorks Sales.xlsx** containing:
 ---
 
 ## Data Preparation (Power Query)
-1. **Imported** 5 tables from Excel: Sales_data, Product_data, Customer_data, Date_data, Sales Territory_data.
+1. **Imported** 7 tables from Excel: Sales, Product, Customer, Date, SalesTerritory, SalesOrder, Reseller
 2. **Changed data types** to appropriate formats (Dates, Currency, Whole Numbers).
 3. **Merged Sales_data with Product_data** to create a `Profit` column.
 4. **Split Customer name** into `FirstName` and `LastName`.
 5. Added **Sales Category** classification based on Sales Amount thresholds.
 6. Performed **monthly aggregation** in Date_data: Total Sales 
-
-
 7. Removed duplicate products and filtered Sales_data for dates ≥ 2018.
 8. Created an **Outliers_Summary** query for Sales Amount (99th percentile).
+9. Duplicated Customer's table, removed some columns and created Geography table.
 
 ![Power Query Editor](screenshots/power_query_editor.png)
 
@@ -43,10 +42,11 @@ The project uses **AdventureWorks Sales.xlsx** containing:
 
 ## Data Modeling
 - Implemented a **Star Schema**:
-  - Sales_data fact table at the center
-  - Linked to Date_data, Product_data, Customer_data, Sales Territory_data
+  - Sales fact table at the center
+  - Linked to Product, Customer, Date, SalesTerritory, SalesOrder, Reseller
+  - Geography table links to Customer
 - Created **Date** and **Product** hierarchies
-- Hid surrogate keys and formatted all measures
+- Formatted all measures
 
 ![Model View](screenshots/model_view.png)
 
@@ -85,7 +85,7 @@ The project uses **AdventureWorks Sales.xlsx** containing:
 ---
 
 ## DAX Measures Overview
-This report contains **10 optimized DAX measures** designed for advanced analysis, trend tracking and KPI monitoring.
+This report contains **15 optimized DAX measures** designed for advanced analysis, trend tracking and KPI monitoring.
 ### 1. Total Sales Amount
 <img src="screenshots/Total_SalesAmount.png" width="800">
 
@@ -144,6 +144,28 @@ This report contains **10 optimized DAX measures** designed for advanced analysi
 <img src="screenshots/Total_Customers.png" width="800">
 
 - Counts unique customers who have made purchases.
+
+### 11. Average Sales per Customer
+
+- Calculates the total sales amount divided by the distinct number of customers.
+
+
+### 12.  Repeat Purchase Rate
+- Measures the percentage of customers who have made more than one purchase.
+
+
+### 13. State with Most Customers
+- Identifies the state with the highest number of distinct customers.
+
+
+### 14. City with Most Customers
+- Identifies the city with the highest number of distinct customers.
+
+
+### 15. Country with Most Customers
+- Identifies the country with the highest number of distinct customers.
+
+
 
 
 ## Row-Level Security (RLS) Implementation
