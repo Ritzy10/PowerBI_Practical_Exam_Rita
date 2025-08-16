@@ -25,7 +25,8 @@ The project uses **AdventureWorks Sales.xlsx** containing:
 
 ---
 
-## Data Preparation (Power Query)
+## Section 1: Data Import and Transformation 
+
 1. **Imported** 7 tables from Excel: Sales, Product, Customer, Date, SalesTerritory, SalesOrder, Reseller
 2. **Changed data types** to appropriate formats (Dates, Currency, Whole Numbers).
 3. **Merged Sales_data with Product_data** to create a `Profit` column.
@@ -40,15 +41,18 @@ The project uses **AdventureWorks Sales.xlsx** containing:
 
 ---
 
-## Data Modeling
+## Section 2: Data Modeling 
+
 - Implemented a **Star Schema**:
+
+<img src="screenshots/model_view.png" width="800">
+
   - Sales fact table at the center
   - Linked to Product, Customer, Date, SalesTerritory, SalesOrder, Reseller
   - Geography table links to Customer
 - Created **Date** and **Product** hierarchies
 - Formatted all measures
 
-![Model View](screenshots/model_view.png)
 
 ---
 
@@ -69,18 +73,45 @@ The project uses **AdventureWorks Sales.xlsx** containing:
 
 ## Report Pages
 ### Page 1: Sales Overview
-- KPI, Line Chart, Map
-- Slicers synced across pages
+**Purpose:** Monitor overall sales performance, profit margins, and product sales distribution.  
+**Key Features:**
+- **Total Sales, Target Sales, Profit Margin %, Total Profit** KPIs
+- **Sales Category Distribution** (High, Medium, Low segments)
+- **Monthly Sales Trend** with Total Sales Amount vs Quantity
+- **Top 10 Products by Sales Amount**
+- **Top 50 Sales Transactions** table with details (Sales Order, Year, Month, Channel, Region, Total Quantity, Total Sales)
+
+<img src="screenshots/SalesOverview.png" width="800">
+
+
+
 
 ### Page 2: Product Analysis
-- Top 10 Products, Scatter Plot, Decomposition Tree
-- Bookmark toggle for Top/Bottom performers
+**Purpose:** Analyze product performance across categories, subcategories, and colors to identify top-selling products and trends.  
+**Key Features:**
+- **Product Sales Analysis** by Product, Category, Subcategory, Color, City, State, Country, date, Total Quantity, Total Sales.
+- **Decomposition Tree** for Total Sales Amount by Product and City Model 
+- **Top Product Performers**
+  - **Top Category:** Bikes ($83.36M)  
+  - **Top Subcategory:** Road Bikes ($37.87M)  
+  - **Top Color:** Black ($34.74M)
+- **Category Rank Over Time** – Monthly performance trends for product categories
+
+<img src="screenshots/ProductAnalysis.png" width="800">
 
 ### Page 3: Customer Insights
-- Customer table with conditional formatting
-- Multi-row card for key metrics
+**Purpose:** Understand customer distribution, purchasing behavior, and identify top customers.  
+**Key Features:**
+- **Summary Statistics**
+  - Total Customers: 18,281  
+  - Total Quantity: 262,740  
+  - Average Order Value: 844.43  
+  - Repeat Purchase Rate: 0.99  
+- **Customer Distribution by Country & State**
+- **Top Customer Insights** (Top Customer: Aaron, City: London, State: California, Country: USA)
+- **Top 50 Customer Summary** with Customer ID, Name, Location, Quantity, Total Sales
 
-![Sales Overview](screenshots/page_sales_overview.png)
+<img src="screenshots/CustomerInsights.png" width="800">
 
 ---
 
@@ -145,28 +176,36 @@ This report contains **15 optimized DAX measures** designed for advanced analysi
 
 - Counts unique customers who have made purchases.
 
+
 ### 11. Average Sales per Customer
+<img src="screenshots/AvgSales_per_customer.png" width="800">
 
 - Calculates the total sales amount divided by the distinct number of customers.
 
 
 ### 12.  Repeat Purchase Rate
+<img src="screenshots/RepeatRate.png" width="800">
+
 - Measures the percentage of customers who have made more than one purchase.
 
 
 ### 13. State with Most Customers
+<img src="screenshots/Topstate.png" width="800">
 - Identifies the state with the highest number of distinct customers.
 
 
 ### 14. City with Most Customers
+<img src="screenshots/Topcity.png" width="800">
+
 - Identifies the city with the highest number of distinct customers.
 
 
 ### 15. Country with Most Customers
+<img src="screenshots/Topcountry.png" width="800">
+
 - Identifies the country with the highest number of distinct customers.
 
-
-
+---
 
 ## Row-Level Security (RLS) Implementation
 
@@ -175,12 +214,19 @@ Two roles were created:
 
 ### 1. US Manager
 Filters the data to only show sales where the country is **United States**.
-```DAX
-[Country-Region] = "United States"
-```
+<img src="screenshots/roles.png" width="800">
+
+- Viewing as US Manager: 
+<img src="screenshots/US_Manager.png" width="800">
+
 
 ### 2. Europe Manager
 Filters the data to only show sales where the country is in the list of European countries.
-```DAX
-[Country-Region] IN { "France", "Germany", "Spain", "Italy", "United Kingdom" }
-```
+<img src="screenshots/roles1.png" width="800">
+
+- Viewing as Europe Manager:
+<img src="screenshots/Europe_Manager.png" width="800">
+
+
+## Published Dashboard
+[Click to View Live Report](https://app.powerbi.com/view?r=eyJrIjoiNmViZWRjNzktYjVmZi00NGExLTg5N2ItNTEyMzE3MGNjNTg4IiwidCI6IjE2ZDgzZWU2LTI1NGEtNDY5ZC1hNmNjLTU0ZTJjYTIzMTNlNyIsImMiOjh9)
