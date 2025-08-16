@@ -142,7 +142,7 @@ This dashboard consolidates **Sales Overview, Product Analysis, and Customer Ins
 <img src="screenshots/Executive.png" width="800">
 <img src="screenshots/Executive1.png" width="800">
 
-- **Quick Insights (Q&A)**: Added a natural language tile answering queries such as *"Top selling product in 2020"*.  
+- **Quick Insights (Q&A)**: Added a natural language tile answering queries such as *"Top product by Currency"*.  
 - **Consistent Theme**: Used the same theme as the other dashboards.  
 - **Mobile Layout Optimization**: Configured the mobile view so executives can track KPIs and trends seamlessly on their devices. 
 <img src="screenshots/Mobile.png" width="500">
@@ -253,6 +253,20 @@ Filters the data to only show sales where the country is in the list of European
 
 - Viewing as Europe Manager:
 <img src="screenshots/Europe_Manager.png" width="800">
+
+
+### Assumptions & Limitations
+#### Assumptions
+- The AdventureWorks dataset provided is complete, accurate, and representative of actual business operations.
+- All required business rules (e.g., Profit = SalesAmount – Quantity × Cost, Sales Category thresholds) are correct and accepted by stakeholders.
+- The provided time period (2018 onwards) sufficiently reflects current sales trends for meaningful analysis.
+- Power BI Service and user accounts are assumed to have the necessary licenses and permissions for publishing, sharing and applying Row-Level Security (RLS).
+#### Limitations
+- Historical data prior to 2018 is excluded, which may limit long-term trend analysis and seasonality insights.
+- Outlier handling is limited to the 99th percentile filter; additional data quality checks may be required in production.
+- Performance testing on very large datasets was not conducted, so scalability in enterprise-scale environments is unverified.
+-	Custom visuals used in the report may have licensing or compatibility restrictions in different Power BI environments
+
 
 
 ## Published Dashboard
