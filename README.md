@@ -72,6 +72,7 @@ POWERBI_PRACTICAL_EXAM/
 ## Section 3: Creating Visualizations 
 ### Visuals Gallery
 **Purpose:** A collection of different charts and graphs used to represent data.
+
 <img src="screenshots/Visuals_Gallery.png" width="800">
 
 **Key Features:**
@@ -129,6 +130,27 @@ POWERBI_PRACTICAL_EXAM/
 - **Customer Distribution by Country & State**
 - **Top Customer Insights** (Top Customer: Aaron, City: London, State: California, Country: USA)
 - **Top 50 Customer Summary** with Customer ID, Name, Location, Quantity, Total Sales
+
+
+### Executive Dashboard
+
+After publishing the Power BI report to the **Power BI Service**, an **Executive Business Performance Dashboard** was created.  
+This dashboard consolidates **Sales Overview, Product Analysis, and Customer Insights** into a single interactive view for decision-makers.  
+
+####  Key Features Implemented
+- **Pinned Visuals**: Selected KPIs and charts (e.g., Top Products, Yearly Total Sales, Monthly Sales Tend) pinned from the reports.  
+<img src="screenshots/Executive.png" width="800">
+<img src="screenshots/Executive1.png" width="800">
+
+- **Quick Insights (Q&A)**: Added a natural language tile answering queries such as *"Top selling product in 2020"*.  
+- **Consistent Theme**: Used the same theme as the other dashboards.  
+- **Mobile Layout Optimization**: Configured the mobile view so executives can track KPIs and trends seamlessly on their devices. 
+<img src="screenshots/Mobile.png" width="500">
+<img src="screenshots/Mobile1.png" width="500">
+<img src="screenshots/Mobile2.png" width="500"> 
+
+This ensures the dashboard is **engaging, accessible and aligned with business needs** across both desktop and mobile platforms.
+
 
 
 
@@ -209,26 +231,6 @@ This report contains **15 optimized DAX measures** designed for advanced analysi
 #### 15. Country with Most Customers
 - Identifies the country with the highest number of distinct customers.
 <img src="screenshots/Topcountry.png" width="800">
-
-
-### Executive Dashboard
-
-After publishing the Power BI report to the **Power BI Service**, an **Executive Business Performance Dashboard** was created.  
-This dashboard consolidates **Sales Overview, Product Analysis, and Customer Insights** into a single interactive view for decision-makers.  
-
-####  Key Features Implemented
-- **Pinned Visuals**: Selected KPIs and charts (e.g., Top Products, Yearly Total Sales, Monthly Sales Tend) pinned from the reports.  
-<img src="screenshots/Executive.png" width="800">
-<img src="screenshots/Executive1.png" width="800">
-
-- **Quick Insights (Q&A)**: Added a natural language tile answering queries such as *"Top selling product in 2020"*.  
-- **Consistent Theme**: Used the same theme as the other dashboards.  
-- **Mobile Layout Optimization**: Configured the mobile view so executives can track KPIs and trends seamlessly on their devices. 
-<img src="screenshots/Mobile.png" width="800">
-<img src="screenshots/Mobile1.png" width="800">
-<img src="screenshots/Mobile2.png" width="800"> 
-
-This ensures the dashboard is **engaging, accessible and aligned with business needs** across both desktop and mobile platforms.
 
 
 
