@@ -13,14 +13,17 @@ The deliverables include:
 - Full documentation with visuals and publishing
 
 
-## Dataset Description
-The project uses **AdventureWorks Sales.xlsx** containing:
-- **Sales_data** – transactional sales facts
-- **Product_data** – product details (cost, category, subcategory)
-- **Customer_data** – customer names and locations
-- **Date_data** – calendar dates, years, months
-- **Sales Territory_data** – regional mapping
-- Optional: **Reseller_data**, **Sales Order_data**
+## Project Structure
+
+```
+POWERBI_PRACTICAL_EXAM/
+├── screenshots/                     # All screenshots attached to README
+├── PowerBI_Practical_Exam.pbix      # Power BI project file
+├── Report.pdf                       # Exported Power BI report
+├── AdventureWorks_Sales.xlsx        # Dataset used in the analysis
+└── README.md                        # Comprehensive documentation 
+
+```
 
 
 ## Section 1: Data Import and Transformation 
@@ -28,10 +31,14 @@ The project uses **AdventureWorks Sales.xlsx** containing:
 1. **Imported** 7 tables from Excel: Sales, Product, Customer, Date, SalesTerritory, SalesOrder, Reseller
 2. **Changed data types** to appropriate formats (Dates, Currency, Whole Numbers).
 3. **Merged Sales with Product** to create a `Profit` column.
+<img src="screenshots/Profit.png" width="800">
+
 4. **Split Customer name** into `FirstName` and `LastName`.
 <img src="screenshots/CustomerQuery.png" width="800">
 
 5. Added **Sales Category** classification based on Sales Amount thresholds.
+<img src="screenshots/SalesCategory.png" width="800">
+
 6. Removed duplicate products and filtered Sales for dates ≥ 2018.
 <img src="screenshots/SalesQuery.png" width="800">
 
@@ -43,6 +50,7 @@ The project uses **AdventureWorks Sales.xlsx** containing:
 
 9. Duplicated Customer's table, removed some columns and created Geography table.
 <img src="screenshots/Geography.png" width="800">
+
 
 
 
@@ -73,6 +81,7 @@ The project uses **AdventureWorks Sales.xlsx** containing:
 - **Custom Bullet Chart:** Sales vs Budget
 
 ![Visuals Gallery](screenshots/visuals_gallery_bar.png)
+
 
 
 
@@ -120,6 +129,7 @@ The project uses **AdventureWorks Sales.xlsx** containing:
 - **Customer Distribution by Country & State**
 - **Top Customer Insights** (Top Customer: Aaron, City: London, State: California, Country: USA)
 - **Top 50 Customer Summary** with Customer ID, Name, Location, Quantity, Total Sales
+
 
 
 ## Section 5: Advanced Features and DAX
@@ -201,12 +211,12 @@ This report contains **15 optimized DAX measures** designed for advanced analysi
 <img src="screenshots/Topcountry.png" width="800">
 
 
-### Row-Level Security (RLS) Implementation
+## Row-Level Security (RLS) Implementation
 
 Row-Level Security was implemented to restrict data visibility based on a user's assigned role.  
 Two roles were created:
 
-#### 1. US Manager
+### 1. US Manager
 Filters the data to only show sales where the country is **United States**.
 <img src="screenshots/roles.png" width="800">
 
@@ -214,7 +224,7 @@ Filters the data to only show sales where the country is **United States**.
 <img src="screenshots/US_Manager.png" width="800">
 
 
-#### 2. Europe Manager
+### 2. Europe Manager
 Filters the data to only show sales where the country is in the list of European countries.
 <img src="screenshots/roles1.png" width="800">
 
