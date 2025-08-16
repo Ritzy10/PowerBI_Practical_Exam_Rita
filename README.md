@@ -5,14 +5,13 @@ This project is my submission for the DSA3050A End Semester Exam, demonstrating 
 
 The dataset is based on the **AdventureWorks Sales** data.  
 The deliverables include:
-- Data extraction, transformation, and loading (ETL) in Power Query
+- Data extraction, transformation and loading (ETL) in Power Query
 - Star schema data modeling
 - Advanced DAX measures
 - Interactive report pages and dashboard
 - Row-Level Security (RLS)
 - Full documentation with visuals and publishing
 
----
 
 ## Dataset Description
 The project uses **AdventureWorks Sales.xlsx** containing:
@@ -23,23 +22,29 @@ The project uses **AdventureWorks Sales.xlsx** containing:
 - **Sales Territory_data** – regional mapping
 - Optional: **Reseller_data**, **Sales Order_data**
 
----
 
 ## Section 1: Data Import and Transformation 
 
 1. **Imported** 7 tables from Excel: Sales, Product, Customer, Date, SalesTerritory, SalesOrder, Reseller
 2. **Changed data types** to appropriate formats (Dates, Currency, Whole Numbers).
-3. **Merged Sales_data with Product_data** to create a `Profit` column.
+3. **Merged Sales with Product** to create a `Profit` column.
 4. **Split Customer name** into `FirstName` and `LastName`.
+<img src="screenshots/CustomerQuery.png" width="800">
+
 5. Added **Sales Category** classification based on Sales Amount thresholds.
-6. Performed **monthly aggregation** in Date_data: Total Sales 
-7. Removed duplicate products and filtered Sales_data for dates ≥ 2018.
+6. Removed duplicate products and filtered Sales for dates ≥ 2018.
+<img src="screenshots/SalesQuery.png" width="800">
+
+7. Performed **yearly aggregation** and created Yearly_Sales table.
+<img src="screenshots/YearlySales.png" width="800">
+
 8. Created an **Outliers_Summary** query for Sales Amount (99th percentile).
+<img src="screenshots/Outliers.png" width="800">
+
 9. Duplicated Customer's table, removed some columns and created Geography table.
+<img src="screenshots/Geography.png" width="800">
 
-![Power Query Editor](screenshots/power_query_editor.png)
 
----
 
 ## Section 2: Data Modeling 
 
@@ -54,7 +59,7 @@ The project uses **AdventureWorks Sales.xlsx** containing:
 - Formatted all measures
 
 
----
+
 
 ## Visuals Gallery
 - **Bar Chart:** Top 10 Products by Sales
@@ -69,11 +74,15 @@ The project uses **AdventureWorks Sales.xlsx** containing:
 
 ![Visuals Gallery](screenshots/visuals_gallery_bar.png)
 
----
 
-## Report Pages
+
+## Section 4: Building Reports and Dashboards
+
 ### Page 1: Sales Overview
 **Purpose:** Monitor overall sales performance, profit margins, and product sales distribution.  
+
+<img src="screenshots/SalesOverview.png" width="800">
+
 **Key Features:**
 - **Total Sales, Target Sales, Profit Margin %, Total Profit** KPIs
 - **Sales Category Distribution** (High, Medium, Low segments)
@@ -81,13 +90,12 @@ The project uses **AdventureWorks Sales.xlsx** containing:
 - **Top 10 Products by Sales Amount**
 - **Top 50 Sales Transactions** table with details (Sales Order, Year, Month, Channel, Region, Total Quantity, Total Sales)
 
-<img src="screenshots/SalesOverview.png" width="800">
-
-
-
 
 ### Page 2: Product Analysis
 **Purpose:** Analyze product performance across categories, subcategories, and colors to identify top-selling products and trends.  
+
+<img src="screenshots/ProductAnalysis.png" width="800">
+
 **Key Features:**
 - **Product Sales Analysis** by Product, Category, Subcategory, Color, City, State, Country, date, Total Quantity, Total Sales.
 - **Decomposition Tree** for Total Sales Amount by Product and City Model 
@@ -97,10 +105,12 @@ The project uses **AdventureWorks Sales.xlsx** containing:
   - **Top Color:** Black ($34.74M)
 - **Category Rank Over Time** – Monthly performance trends for product categories
 
-<img src="screenshots/ProductAnalysis.png" width="800">
 
 ### Page 3: Customer Insights
-**Purpose:** Understand customer distribution, purchasing behavior, and identify top customers.  
+**Purpose:** Understand customer distribution, purchasing behavior, and identify top customers. 
+
+<img src="screenshots/CustomerInsights.png" width="800">
+
 **Key Features:**
 - **Summary Statistics**
   - Total Customers: 18,281  
@@ -111,108 +121,92 @@ The project uses **AdventureWorks Sales.xlsx** containing:
 - **Top Customer Insights** (Top Customer: Aaron, City: London, State: California, Country: USA)
 - **Top 50 Customer Summary** with Customer ID, Name, Location, Quantity, Total Sales
 
-<img src="screenshots/CustomerInsights.png" width="800">
 
----
+## Section 5: Advanced Features and DAX
 
-## DAX Measures Overview
+### DAX Measures Overview
 This report contains **15 optimized DAX measures** designed for advanced analysis, trend tracking and KPI monitoring.
-### 1. Total Sales Amount
+#### 1. Total Sales Amount
+- Calculates total revenue from all sales transactions
 <img src="screenshots/Total_SalesAmount.png" width="800">
 
-- Calculates total revenue from all sales transactions
 
-
-### 2. Total Profit
+#### 2. Total Profit
+- Calculates the total profit generated across all orders.
 <img src="screenshots/Total_Profit.png" width="800">
 
-- Calculates the total profit generated across all orders.
 
-
-### 3. Total Quantity
+#### 3. Total Quantity
+- Calculates the total number of units sold.
 <img src="screenshots/Total_Quantity.png" width="800">
 
-- Calculates the total number of units sold.
 
-
-### 4. LastYearSales
+#### 4. LastYearSales
+- Returns total sales for the same period in the previous year, enabling year-over-year comparisons.
 <img src="screenshots/LastYearSales.png" width="800">
 
-- Returns total sales for the same period in the previous year, enabling year-over-year comparisons.
 
-
-### 5. YoY Growth %
+#### 5. YoY Growth %
+- Calculates the percentage change in sales compared to the same period last year.
 <img src="screenshots/YoY.png" width="800">
 
-- Calculates the percentage change in sales compared to the same period last year.
 
-
-### 6. Running Total Sales
+#### 6. Running Total Sales
+- Provides cumulative sales from the start of the date range up to the current date.
 <img src="screenshots/Running_Total_Sales.png" width="800">
 
-- Provides cumulative sales from the start of the date range up to the current date.
 
-
-### 7. Top 5 Product Rank
+#### 7. Top 5 Product Rank
+-  Ranks products by sales, with 1 being the highest-selling product. Can be used to filter the top 5 products.
 <img src="screenshots/Top5_Products.png" width="800">
 
--  Ranks products by sales, with 1 being the highest-selling product. Can be used to filter the top 5 products.
 
-
-### 8. Average Order Value
+#### 8. Average Order Value
+- Shows the average revenue per order, useful for understanding customer spending patterns.
 <img src="screenshots/AOV.png" width="800">
 
-- Shows the average revenue per order, useful for understanding customer spending patterns.
 
-
-### 9. Profit Margin %
+#### 9. Profit Margin %
+- Calculates profit as a percentage of total sales, indicating profitability efficiency.
 <img src="screenshots/ProfitMargin.png" width="800">
 
-- Calculates profit as a percentage of total sales, indicating profitability efficiency.
 
-
-### 10. Total Customers
+#### 10. Total Customers
+- Counts unique customers who have made purchases.
 <img src="screenshots/Total_Customers.png" width="800">
 
-- Counts unique customers who have made purchases.
 
-
-### 11. Average Sales per Customer
+#### 11. Average Sales per Customer
+- Calculates the total sales amount divided by the distinct number of customers.
 <img src="screenshots/AvgSales_per_customer.png" width="800">
 
-- Calculates the total sales amount divided by the distinct number of customers.
 
-
-### 12.  Repeat Purchase Rate
+#### 12.  Repeat Purchase Rate
+- Measures the percentage of customers who have made more than one purchase.
 <img src="screenshots/RepeatRate.png" width="800">
 
-- Measures the percentage of customers who have made more than one purchase.
 
-
-### 13. State with Most Customers
-<img src="screenshots/Topstate.png" width="800">
+#### 13. State with Most Customers
 - Identifies the state with the highest number of distinct customers.
+<img src="screenshots/Topstate.png" width="800">
 
 
-### 14. City with Most Customers
+#### 14. City with Most Customers
+- Identifies the city with the highest number of distinct customers.
 <img src="screenshots/Topcity.png" width="800">
 
-- Identifies the city with the highest number of distinct customers.
 
-
-### 15. Country with Most Customers
+#### 15. Country with Most Customers
+- Identifies the country with the highest number of distinct customers.
 <img src="screenshots/Topcountry.png" width="800">
 
-- Identifies the country with the highest number of distinct customers.
 
----
-
-## Row-Level Security (RLS) Implementation
+### Row-Level Security (RLS) Implementation
 
 Row-Level Security was implemented to restrict data visibility based on a user's assigned role.  
 Two roles were created:
 
-### 1. US Manager
+#### 1. US Manager
 Filters the data to only show sales where the country is **United States**.
 <img src="screenshots/roles.png" width="800">
 
@@ -220,7 +214,7 @@ Filters the data to only show sales where the country is **United States**.
 <img src="screenshots/US_Manager.png" width="800">
 
 
-### 2. Europe Manager
+#### 2. Europe Manager
 Filters the data to only show sales where the country is in the list of European countries.
 <img src="screenshots/roles1.png" width="800">
 
@@ -229,4 +223,4 @@ Filters the data to only show sales where the country is in the list of European
 
 
 ## Published Dashboard
-[Click to View Live Report](https://app.powerbi.com/view?r=eyJrIjoiNmViZWRjNzktYjVmZi00NGExLTg5N2ItNTEyMzE3MGNjNTg4IiwidCI6IjE2ZDgzZWU2LTI1NGEtNDY5ZC1hNmNjLTU0ZTJjYTIzMTNlNyIsImMiOjh9)
+[Click to View Live Report](https://app.powerbi.com/reportEmbed?reportId=586822c8-33c2-4c86-b771-543cfcc23819&autoAuth=true&ctid=16d83ee6-254a-469d-a6cc-54e2ca2313e7)
