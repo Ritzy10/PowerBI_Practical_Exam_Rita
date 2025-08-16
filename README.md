@@ -134,7 +134,7 @@ POWERBI_PRACTICAL_EXAM/
 
 ### Executive Dashboard
 
-After publishing the Power BI report to the **Power BI Service**, an **Executive Business Performance Dashboard** was created.  
+After publishing the Power BI report to the **Power BI Service**, I created an **Executive Business Performance Dashboard**.  
 This dashboard consolidates **Sales Overview, Product Analysis, and Customer Insights** into a single interactive view for decision-makers.  
 
 ####  Key Features Implemented
