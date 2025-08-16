@@ -69,18 +69,18 @@ POWERBI_PRACTICAL_EXAM/
 
 
 
-## Visuals Gallery
-- **Bar Chart:** Top 10 Products by Sales
-- **Line Chart:** Monthly Sales with 6-month Forecast
-- **Pie Chart:** Sales by Category (%)
-- **Map:** Sales by Country/State (bubble size = Quantity)
-- **Scatter Plot:** Quantity vs Profit (play axis = Year)
-- **KPI Card:** Total Sales vs Target (10% YoY growth)
-- **Gauge:** Profit Margin vs Target 30%
-- **Decomposition Tree:** Drill by Customer → Product → Region
-- **Custom Bullet Chart:** Sales vs Budget
+## Section 3: Creating Visualizations 
+### Visuals Gallery
+**Purpose:** A collection of different charts and graphs used to represent data.
+<img src="screenshots/Visuals_Gallery.png" width="800">
 
-![Visuals Gallery](screenshots/visuals_gallery_bar.png)
+**Key Features:**
+- **Yearly Total Sales**: Bar chart comparing sales across different years.  
+- **Profit Margin with 30% Target**: Donut chart showing KPI progress towards a profit margin goal.  
+- **Total Sales Amount and Target**: Card visual highlighting a key sales metric and its target comparison.  
+- **Monthly Sales Trend**: Line graph illustrating sales trends across months of the year.  
+- **Quantity vs Profit (by Category) with Play Axis (Year)**: Scatter plot showing the relationship between quantity and profit, animated by year.  
+- **Top 10 Products by Sales Amount**: Bar chart ranking the best-performing products by sales.  
 
 
 
@@ -209,6 +209,27 @@ This report contains **15 optimized DAX measures** designed for advanced analysi
 #### 15. Country with Most Customers
 - Identifies the country with the highest number of distinct customers.
 <img src="screenshots/Topcountry.png" width="800">
+
+
+### Executive Dashboard
+
+After publishing the Power BI report to the **Power BI Service**, an **Executive Business Performance Dashboard** was created.  
+This dashboard consolidates **Sales Overview, Product Analysis, and Customer Insights** into a single interactive view for decision-makers.  
+
+####  Key Features Implemented
+- **Pinned Visuals**: Selected KPIs and charts (e.g., Top Products, Yearly Total Sales, Monthly Sales Tend) pinned from the reports.  
+<img src="screenshots/Executive.png" width="800">
+<img src="screenshots/Executive1.png" width="800">
+
+- **Quick Insights (Q&A)**: Added a natural language tile answering queries such as *"Top selling product in 2020"*.  
+- **Consistent Theme**: Used the same theme as the other dashboards.  
+- **Mobile Layout Optimization**: Configured the mobile view so executives can track KPIs and trends seamlessly on their devices. 
+<img src="screenshots/Mobile.png" width="800">
+<img src="screenshots/Mobile1.png" width="800">
+<img src="screenshots/Mobile2.png" width="800"> 
+
+This ensures the dashboard is **engaging, accessible and aligned with business needs** across both desktop and mobile platforms.
+
 
 
 ## Row-Level Security (RLS) Implementation
