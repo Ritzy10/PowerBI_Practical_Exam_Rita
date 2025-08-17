@@ -270,4 +270,5 @@ Filters the data to only show sales where the country is in the list of European
 
 
 ## Published Dashboard
+My PowerBI license expired which prevented me from publishing a public link so i just sent the website link.
 [Click to View Live Report](https://app.powerbi.com/reportEmbed?reportId=586822c8-33c2-4c86-b771-543cfcc23819&autoAuth=true&ctid=16d83ee6-254a-469d-a6cc-54e2ca2313e7)
